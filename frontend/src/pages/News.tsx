@@ -52,7 +52,7 @@ interface NewsArticle {
 const categories = ["All", "Bitcoin", "Ethereum", "DeFi", "Regulation", "NFTs", "CBDC"];
 const sentiments = ["All", "Bullish", "Bearish", "Neutral"];
 
-const API =  "http://localhost:5000/api/news";
+const API =  "https://currency-backend-9xq9.onrender.com/api/news";
 
 export default function News() {
   const [articles, setArticles] = useState<NewsArticle[]>([]);
