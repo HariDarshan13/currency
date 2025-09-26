@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Virtual Currency Tracker Design System - Futuristic Crypto Theme */
+
+@layer base {
+  :root {
+    /* Core Dark Crypto Theme */
+    --background: 213 21% 4%;  /* Dark navy #0B0C10 */
+    --foreground: 0 0% 100%;   /* Pure white */
+
+    --card: 213 21% 6%;        /* Slightly lighter than background */
+    --card-foreground: 0 0% 100%;
+
+    --popover: 213 21% 6%;
+    --popover-foreground: 0 0% 100%;
+
+    /* Primary: Neon Blue */
+    --primary: 195 100% 50%;    /* Neon Blue #00D4FF */
+    --primary-foreground: 213 21% 4%;
+
+    /* Secondary: Neon Green */
+    --secondary: 108 100% 55%;  /* Neon Green #39FF14 */
+    --secondary-foreground: 213 21% 4%;
+
+    /* Accent: Gold */
+    --accent: 51 100% 50%;      /* Gold #FFD700 */
+    --accent-foreground: 213 21% 4%;
+
+    /* Muted variations */
+    --muted: 213 21% 8%;
+    --muted-foreground: 0 0% 67%; /* Gray #AAAAAA */
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 213 21% 12%;
+    --input: 213 21% 8%;
+    --ring: 195 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Crypto-specific design tokens */
+    --crypto-glow: 195 100% 50%;
+    --profit-color: 108 100% 55%;
+    --loss-color: 0 72% 51%;
+    --neutral-color: 0 0% 67%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(195 100% 50%) 0%, hsl(108 100% 55%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(213 21% 4%) 0%, hsl(195 100% 50% / 0.1) 50%, hsl(108 100% 55% / 0.1) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(213 21% 6%) 0%, hsl(213 21% 8%) 100%);
+    
+    /* Shadows with glow effects */
+    --shadow-glow: 0 0 20px hsl(195 100% 50% / 0.3);
+    --shadow-glow-green: 0 0 20px hsl(108 100% 55% / 0.3);
+    --shadow-glow-gold: 0 0 20px hsl(51 100% 50% / 0.3);
+    --shadow-card: 0 8px 32px hsl(213 21% 2% / 0.8);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-glow: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-mono;
+    background: linear-gradient(135deg, hsl(213 21% 4%) 0%, hsl(213 21% 6%) 100%);
+    min-height: 100vh;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(213 21% 4%);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(195 100% 50% / 0.3);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(195 100% 50% / 0.5);
+  }
+}
+
+@layer components {
+  /* Crypto-specific utility classes */
+  .crypto-glow {
+    box-shadow: var(--shadow-glow);
+    transition: var(--transition-glow);
+  }
+
+  .crypto-glow:hover {
+    box-shadow: 0 0 30px hsl(195 100% 50% / 0.5);
+  }
+
+  .crypto-glow-green {
+    box-shadow: var(--shadow-glow-green);
+  }
+
+  .crypto-glow-gold {
+    box-shadow: var(--shadow-glow-gold);
+  }
+
+  .crypto-card {
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-card);
+    border: 1px solid hsl(213 21% 12%);
+    transition: var(--transition-smooth);
+  }
+
+  .crypto-card:hover {
+    border-color: hsl(195 100% 50% / 0.3);
+    box-shadow: var(--shadow-card), var(--shadow-glow);
+  }
+
+  .profit {
+    color: hsl(var(--profit-color));
+  }
+
+  .loss {
+    color: hsl(var(--loss-color));
+  }
+
+  .crypto-gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-pulse {
+    animation: glow-pulse 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow-pulse {
+    from {
+      box-shadow: 0 0 20px hsl(195 100% 50% / 0.3);
+    }
+    to {
+      box-shadow: 0 0 30px hsl(195 100% 50% / 0.6);
+    }
+  }
+}
