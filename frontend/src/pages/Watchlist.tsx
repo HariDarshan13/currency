@@ -54,7 +54,7 @@ export default function Watchlist() {
 
   // Fetch watchlist from backend on load
   useEffect(() => {
-    fetch("http://localhost:5000/api/watchlist")
+    fetch("https://currency-backend-9xq9.onrender.com/api/watchlist")
       .then(res => res.json())
       .then(data => setWatchlist(data))
       .catch(err => console.error("Error fetching watchlist:", err));
@@ -90,7 +90,7 @@ export default function Watchlist() {
     };
 
     try {
-      const res = await fetch("http://localhost:5000/api/watchlist", {
+      const res = await fetch("https://currency-backend-9xq9.onrender.com/api/watchlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newItem),
@@ -116,7 +116,7 @@ export default function Watchlist() {
     setWatchlist(watchlist.filter(item => item.id !== id));
 
     if (coin?._id) {
-      await fetch(`http://localhost:5000/api/watchlist/${coin._id}`, {
+      await fetch(`https://currency-backend-9xq9.onrender.com/api/watchlist/${coin._id}`, {
         method: "DELETE",
       });
     }
@@ -146,7 +146,7 @@ export default function Watchlist() {
     );
 
     if (coin._id) {
-      await fetch(`http://localhost:5000/api/watchlist/${coin._id}/alerts`, {
+      await fetch(`https://currency-backend-9xq9.onrender.com/api/watchlist/${coin._id}/alerts`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newAlert),
