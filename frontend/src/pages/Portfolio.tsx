@@ -15,7 +15,7 @@ export default function Portfolio() {
 
   // Fetch holdings
   useEffect(() => {
-    fetch("http://localhost:5000/api/holdings") // ✅ backend running on port 5000
+    fetch("https://currency-backend-9xq9.onrender.com/api/holdings") // ✅ backend running on port 5000
       .then((res) => res.json())
       .then(async (data) => {
         if (data.length === 0) {
@@ -35,7 +35,7 @@ export default function Portfolio() {
               body: JSON.stringify({ ...s, value, gainLoss, gainLossPercent }),
             });
           }
-          const refreshed = await fetch("http://localhost:5000/api/holdings").then((r) => r.json());
+          const refreshed = await fetch("https://currency-backend-9xq9.onrender.com/api/holdings").then((r) => r.json());
           setHoldings(refreshed);
         } else {
           setHoldings(data);
@@ -81,7 +81,7 @@ export default function Portfolio() {
       gainLossPercent,
     };
 
-    const res = await fetch("http://localhost:5000/api/holdings", {
+    const res = await fetch("https://currency-backend-9xq9.onrender.com/api/holdings", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
@@ -94,7 +94,7 @@ export default function Portfolio() {
 
   // Delete Holding
   const handleDeleteHolding = async (id: string) => {
-    await fetch(`http://localhost:5000/api/holdings/${id}`, { method: "DELETE" });
+    await fetch(`https://currency-backend-9xq9.onrender.com/api/holdings/${id}`, { method: "DELETE" });
     setHoldings(holdings.filter((h) => h._id !== id));
   };
 
