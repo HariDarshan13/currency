@@ -85,7 +85,7 @@ import {
  *  POST    /api/transaction         -> create a transaction
  *  DELETE  /api/transaction/:id     -> delete a transaction by MongoDB _id
  */
-const API_URL = "http://localhost:5000/api/transaction";
+const API_URL = "https://currency-backend-9xq9.onrender.com/api/transaction";
 
 /* -------------------------------------------------------------------------- */
 /*                                   TYPES                                    */
