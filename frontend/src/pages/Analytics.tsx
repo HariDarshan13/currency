@@ -89,7 +89,7 @@ export default function Analytics() {
   // Fetch chart + comparison data from backend
   useEffect(() => {
     fetch(
-      `http://localhost:5000/api/analytics?timeframe=${selectedTimeframe}&chartType=${selectedChartType}`
+      `https://currency-backend-9xq9.onrender.com/api/analytics?timeframe=${selectedTimeframe}&chartType=${selectedChartType}`
     )
       .then((res) => res.json())
       .then((data) => {
